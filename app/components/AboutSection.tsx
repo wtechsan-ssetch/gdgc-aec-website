@@ -6,10 +6,10 @@ import { GraduationCap, Users, Code, Star } from "lucide-react";
 export default function AboutSection() {
 
   const tags = [
-    { text: "GDG AEC", color: "bg-[#0f9d58]", x: "-60%", y: "20%", rotate: -15, delay: 0 },
-    { text: "GDG AEC", color: "bg-[#db4437]", x: "60%", y: "10%", rotate: 15, delay: 0.2 },
-    { text: "GDG AEC", color: "bg-[#f4b400]", x: "-70%", y: "60%", rotate: -10, delay: 0.4 },
-    { text: "GDG AEC", color: "bg-[#4285f4]", x: "50%", y: "70%", rotate: 10, delay: 0.6 },
+    { text: "GDG AEC", color: "bg-[#0f9d58]", x: "-170%", y: "-500%", rotate: 5, delay: 0 },
+    { text: "GDG AEC", color: "bg-[#db4437]", x: "60%", y: "-500%", rotate: -5, delay: 0.2 },
+    { text: "GDG AEC", color: "bg-[#f4b400]", x: "-170%", y: "-100%", rotate: -10, delay: 0.4 },
+    { text: "GDG AEC", color: "bg-[#4285f4]", x: "50%", y: "-100%", rotate: 10, delay: 0.6 },
   ];
 
 
@@ -33,7 +33,7 @@ export default function AboutSection() {
             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
             className="relative w-64 md:w-80 z-20"
           >
-            <img src="/assets/balloon.svg" alt="Hot Air Balloon" className="w-full h-auto drop-shadow-xl" />
+            <img src="/balloon.svg" alt="Hot Air Balloon" className="w-full h-auto drop-shadow-xl" />
 
 
             {tags.map((tag, idx) => (
@@ -50,9 +50,9 @@ export default function AboutSection() {
           </motion.div>
 
           <motion.div
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 w-56 md:w-64 bg-white p-3 pb-8 shadow-2xl rounded-sm border border-gray-100"
-            animate={{ rotate: -8 }}
-            initial={{ rotate: -8 }}
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 z-50 w-[55%] sm:w-[45%] md:w-64 max-w-[260px] bg-white p-2 sm:p-3 shadow-2xl rounded-sm border border-gray-100"
+            animate={{ rotate: 2 }}
+            initial={{ rotate: 2 }}
             whileHover={{ rotate: -2, scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
@@ -60,7 +60,23 @@ export default function AboutSection() {
           </motion.div>
 
 
-          <img src="/assets/clouds-white.svg" alt="clouds" className="absolute bottom-0 w-full opacity-60 z-0 drop-shadow-md scale-110" />
+         <img
+            src="/cloud-white-3.svg"
+            alt="clouds"
+            className="absolute bottom-15 w-[220px] sm:w-[300px] md:w-[400px] z-10 drop-shadow-sm scale-110"
+          />
+
+          <img
+            src="/cloud-white-3.svg"
+            alt="clouds"
+            className="absolute bottom-0 left-20 w-[180px] sm:w-[240px] md:w-[300px] z-10 drop-shadow-sm scale-110"
+          />
+
+          <img
+            src="/cloud-white-3.svg"
+            alt="clouds"
+            className="absolute top-110 right-10 w-[120px] sm:w-[160px] md:w-[200px] z-10 drop-shadow-sm scale-110 rotate-[8deg]"
+          />
         </div>
 
 
