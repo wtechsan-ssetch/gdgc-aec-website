@@ -171,7 +171,7 @@ export default function CoursesPage() {
       )}
 
       {/* ── Hero ── */}
-      <section className="relative pt-36 pb-16 px-4 text-center overflow-hidden">
+      <section className="relative pt-36 pb-16 px-4 text-center">
         {/* Background blobs */}
         <div aria-hidden className="absolute -top-20 -left-20 w-80 h-80 rounded-full opacity-[0.07] blur-3xl" style={{ background: "#4285f4" }} />
         <div aria-hidden className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-[0.07] blur-3xl" style={{ background: "#f4b400" }} />
@@ -238,27 +238,36 @@ export default function CoursesPage() {
           />
         </motion.div>
 
-        {/* Category pills */}
+
+        {/* Category pills — horizontal scroll on mobile, wrap on desktop */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-2 mt-5"
+          className="mt-5 w-screen relative left-1/2 -translate-x-1/2 sm:w-auto sm:left-auto sm:translate-x-0"
         >
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 border ${
-                activeCategory === cat
-                  ? "bg-gray-900 text-white border-gray-900 shadow-sm"
-                  : "bg-white text-gray-500 border-gray-200 hover:border-gray-400 hover:text-gray-700"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+          <div
+            className="flex flex-nowrap items-center gap-2 overflow-x-scroll sm:flex-wrap sm:justify-center sm:overflow-x-visible px-4 sm:px-0 pb-1 sm:pb-0"
+            style={{ WebkitOverflowScrolling: "touch", scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setActiveCategory(cat)}
+                style={{ touchAction: "manipulation", WebkitTapHighlightColor: "transparent" }}
+                className={`flex-none px-4 py-2 rounded-full text-xs font-semibold transition-all duration-200 border cursor-pointer select-none ${
+                  activeCategory === cat
+                    ? "bg-gray-900 text-white border-gray-900 shadow-sm"
+                    : "bg-white text-gray-500 border-gray-200 hover:border-gray-400 hover:text-gray-700"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </motion.div>
+
       </section>
 
       {/* ── Course Grid ── */}
